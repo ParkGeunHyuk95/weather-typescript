@@ -4,10 +4,11 @@ import './App.css';
 import WeatherBox from './components/WeatherBox';
 import WeatherButton from './components/WeatherButton';
 
+
 function App() {
-  const [weather, setWeather] = useState<object>();
+  const [weather, setWeather] = useState<object>({});
   const cities:string[] = ["MOSCOW", "SEOUL", "NEW YORK", "PARIS"];
-  const [hello,setHello]=useState<string>('안녕')
+
   const [city, setCity] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const getCurrentLocation = ():void => {
