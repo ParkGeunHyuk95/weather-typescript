@@ -1,12 +1,30 @@
+import { stringify } from 'querystring';
 import React, { useEffect, useState } from 'react';
 import ClipLoader from "react-spinners/ClipLoader";
 import './App.css';
 import WeatherBox from './components/WeatherBox';
 import WeatherButton from './components/WeatherButton';
 
+interface weather1{
+    name:string;
+    weather:[{
+      description:string;
+    }]
+    main:{
+      temp:number;
+    };
+  
+}
 
 function App() {
-  const [weather, setWeather] = useState<object>({});
+  const [weather, setWeather] = useState<weather1>({ 
+    name: '',
+  weather:[{
+    description: ''
+  }],
+  main:{
+    temp: 0,
+  }});
   const cities:string[] = ["MOSCOW", "SEOUL", "NEW YORK", "PARIS"];
 
   const [city, setCity] = useState<string>("");
@@ -32,7 +50,7 @@ function App() {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e5a8c13b789b8a02ee32533666cff55f&units=metric`;
     setLoading(true);
     let res = await fetch(url);
-    let data:object = await res.json();
+    let data:weather1 = await res.json();
     setWeather(data);
     setLoading(false);
   };

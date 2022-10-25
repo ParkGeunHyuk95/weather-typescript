@@ -1,7 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-const WeatherButton = ({ cities, city, setCity, getCurrentLocation }) => {
+
+interface buttonProps{
+  city:string;
+  cities:string[];
+  setCity: React.Dispatch<React.SetStateAction<string>>
+  getCurrentLocation: ()=>void
+}
+const WeatherButton = ({ cities, city, setCity, getCurrentLocation }:buttonProps) => {
   return (
     <div id="WeatherButton" className="menu-container" >
       <Button 
