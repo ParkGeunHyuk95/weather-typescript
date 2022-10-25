@@ -37,10 +37,14 @@
       "not dead",
       "not op_mini all"
     ],
+    "homepage": "https://parkgeunhyuk1.github.io/weather-typescript/",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
